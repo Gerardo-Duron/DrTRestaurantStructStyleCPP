@@ -1,7 +1,7 @@
-#include <ios>  // Provides ios_base::failure
-#include <iostream>  // Provides cin
-#include<string> //for string manipulation
-#include<sstream> //for string manipulation and comparison
+#include <ios>  
+#include <iostream>  
+#include<string> 
+#include<sstream> 
 using namespace std; 
 
 //Function Prototypes
@@ -125,5 +125,6 @@ string validateString(string &stringInput)
         break;
     }
     
-    return stringInput; 
+    return stringInput;
+
 }

@@ -226,7 +226,7 @@ void tipFunction()
     do
     {
       cout<< "Please make a selection ("<< red <<"0,1,2,3,4" << reset<<"): "<<red;
-      tipOption = validateInt(tipOption); //Verifing that the user uses an int
+      tipOption = validateInt(tipOption); //Verifing user input
       cout<<reset;
       
       
@@ -249,10 +249,48 @@ void tipFunction()
                  }
 
     } while(tipOption != 0 && tipOption != 1 && tipOption != 2 && tipOption != 3 && tipOption != 4);
-
-
-
 }
+  
+void showReceipt(vector<MenuItemList> &m)
+  {
+    cout <<setprecision(2);
+    system("clear");
+     double total = 0.0;
+    double subtotal = 0.0; 
+    double const tax = 0.0825;
+    double tip = 0.0;
+   
+
+    //Creating header
+    cout <<setw(20)<< red << "Gerardo's Favorites " <<reset<< endl; 
+    cout << blue << "**********************************************"<<reset<<endl;
+    cout<< setw(14) << "\tFort Worth's Hidden Secret "<<endl;
+    cout <<setw(17) << "\t\t\tItems purchased"<<endl;
+    cout << blue << "**********************************************"<<reset<<endl;
+
+    //Will check vector size and will display all purchased items
+    for(int i = 0; i < m.size(); i++)
+    {
+    
+      if(m[i].getCount()>0)
+      {
+        //Shows count followed by name
+        cout <<"\t"<< m[i].getCount() <<"\t"<< m[i].getName()<<endl;
+       
+      }
+    }
+  //display total for user's record
+    cout << "\n  Subtotal: " <<subtotal<<endl;
+    cout << "  Tax: " <<(subtotal*tax)<<endl;
+    cout << "  Tip: " <<tip<<endl<<endl;
+    cout << "  Total: "<<total<<endl;
+
+    cout << blue << "**********************************************"<<reset<<endl;
+    cout<<"\t\tFollow us on facebook "<<endl;
+    cout << blue << "**********************************************"<<reset<<endl;
+       
+            
+  }
 
 
 int main() 
@@ -267,6 +305,7 @@ int main()
   vector<MenuItemList> objectMenu;
   populateObjectMenu(objectMenu);
   tipFunction();
+  showReceipt(objectMenu);
   
   return 0; 
 }
